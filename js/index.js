@@ -68,7 +68,7 @@ function renderGreenPeppers() {
 function renderWhiteSauce() {
 
   document.querySelectorAll('.sauce').forEach((sauce) => {
-    if (state.whiteSauce && sauce.classList.contains('sauce-white')) {
+    if (sauce.classList.contains('sauce-white')) {
       sauce.classList.remove('sauce-white');
       
     } else {
@@ -94,22 +94,14 @@ function renderGlutenFreeCrust() {
 
 function renderButtons() {
 
-  document.querySelectorAll('.btn').forEach((btn) => {
-
-    if (btn.classList.contains('active')) {
-      btn.classList.remove('active');
+  let btns = document.querySelectorAll('.btn');
+  btns.forEach((item) => {
+    if (item.classList.contains('active')) {
+      item.classList.remove('active');
     } else {
-      btn.classList.add('active');
+      item.classList.add('active');
     }
-    /*btn.addEventListener('click', () => {
-      if (btn.classList.contains('active')) {
-        btn.classList.remove('active');
-      } else {
-        btn.classList.add('active');
-      }
-    });*/
   });
-  
   // Iteration 3: add/remove the class "active" of each `<button class="btn">`
 }
 
@@ -125,9 +117,16 @@ document.querySelector('.btn.btn-pepperoni').addEventListener('click', function 
   renderEverything();
 });
 document.querySelector('.btn.btn-mushrooms').addEventListener('click', function () {
+  
   state.mushrooms = !state.mushrooms;
   renderEverything();
+  
 });
+document.querySelector('.btn.btn-green-peppers').addEventListener('click', function () {
+  state.greenPeppers = !state.greenPeppers;
+  renderEverything();
+});
+
 document.querySelector('.btn.btn-sauce').addEventListener('click', function () {
   state.whiteSauce = !state.whiteSauce;
   renderEverything();
@@ -136,10 +135,8 @@ document.querySelector('.btn.btn-crust').addEventListener('click', function () {
   state.glutenFreeCrust = !state.glutenFreeCrust;
   renderEverything();
 });
-document.querySelector('.btn.btn-green-peppers').addEventListener('click', function () {
-  state.greenPeppers = !state.greenPeppers;
-  renderEverything();
-});
+
+
 // Iteration 1: Add click event listener on `<button class="btn btn-mushrooms">`
 
 // Iteration 1: Add click event listener on `<button class="btn btn-green-peppers">`
